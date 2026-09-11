@@ -52,7 +52,7 @@ pipeline {
         HOME = "${env.WORKSPACE}"
       }
       steps {
-        withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
+        withCredentials([usernamePassword(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
             sh '''
                 git config --global --add safe.directory ${WORKSPACE}
                 git config user.email "jinsthankachanp@gmail.com"
